@@ -1,8 +1,11 @@
 const express = require("express");
 const app = express();
-//const pastes = require("./data/pastes-data");
+
+
+const usersRouter = require("./users/users.router");
 const pastesRouter = require("./pastes/pastes.router");
-// TODO: Follow instructions in the checkpoint to implement ths API.
+//const pastes = require("./data/pastes-data");
+
 
 app.use(express.json()) //express.json() function is a built-in middleware that adds a body property to the request (req.body). 
 
@@ -19,6 +22,7 @@ app.use("/pastes/:pasteId", (req, res, next) => {
   }
 });
 */
+app.use("/users", usersRouter);
 app.use("/pastes", pastesRouter); // Note: app.use
 /*
 app.get("/pastes", (req, res) => {
